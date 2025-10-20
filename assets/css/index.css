@@ -1,0 +1,183 @@
+/* assets/css/style.css
+   BW-Glass Theme — monochrome, modern, minimal
+   Designed for: Bookstore (Hybrid Glass)
+*/
+
+/* --- Base --- */
+:root{
+  --bg:#0b0b0c;       /* deep background for dark sections */
+  --panel:#0f0f10;
+  --muted: #9a9a9a;
+  --glass: rgba(255,255,255,0.06);
+  --glass-2: rgba(255,255,255,0.04);
+  --accent: #ffffff;
+  --card-bg: rgba(255,255,255,0.02);
+  --border: rgba(255,255,255,0.06);
+  --glass-blur: 8px;
+  --fw-sans: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body.bg-bw{
+  margin:0;
+  font-family:var(--fw-sans);
+  background: linear-gradient(180deg, #050506 0%, #0b0b0c 100%);
+  color:var(--accent);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Links and small text */
+a{color:var(--accent); text-decoration:none}
+a:hover{opacity:0.9}
+.text-bw{color:var(--accent) !important}
+
+/* --- Glass Navbar --- */
+.glass-nav{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border-bottom:1px solid var(--border);
+  transition: all .22s ease;
+  padding:0.7rem 0;
+}
+.glass-nav .navbar-brand{letter-spacing:0.2px}
+.glass-nav .nav-link{color:var(--accent); opacity:0.95; padding:.5rem .75rem}
+.glass-nav .nav-link.active{opacity:1; font-weight:600}
+.glass-nav.glass-small{padding:0.35rem 0; box-shadow: 0 6px 18px rgba(0,0,0,0.5);}
+
+/* Togglers */
+.navbar-toggler{border:0}
+.navbar-toggler-icon{filter:invert(1) grayscale(1) brightness(2)}
+
+/* --- Hero --- */
+.hero{
+  position:relative;
+  min-height:56vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background-size:cover;
+  background-position:center;
+  color:var(--accent);
+}
+.hero-overlay{
+  position:absolute; inset:0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.7) 100%);
+  mix-blend-mode:multiply;
+}
+.hero-inner{position:relative; z-index:2; padding:6rem 0}
+.hero-title{
+  font-weight:700;
+  font-size:2.1rem;
+  margin:0 0 .5rem;
+  letter-spacing: -0.02em;
+}
+.hero-sublead{color:var(--muted); margin-bottom:1rem; font-weight:300}
+
+/* --- Buttons (Ghost / Outline) --- */
+.btn-ghost{
+  background: transparent;
+  color:var(--accent);
+  border:1px solid rgba(255,255,255,0.08);
+  padding:.525rem .9rem;
+  transition: all .18s ease;
+  backdrop-filter: blur(6px);
+  border-radius:999px;
+}
+.btn-ghost:hover{transform:translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.6)}
+.btn-ghost:active{transform:translateY(-1px)}
+.btn-ghost-outline{
+  background: rgba(255,255,255,0.02);
+  color:var(--accent);
+  border:1px solid rgba(255,255,255,0.12);
+  padding:.45rem .85rem;
+  border-radius:999px;
+}
+.btn-ghost-outline:hover{background: rgba(255,255,255,0.03)}
+
+/* sizes */
+.btn-lg{padding: .8rem 1.6rem; font-size:1rem}
+.btn-sm{padding:.35rem .6rem; font-size:0.85rem}
+
+/* --- Cards --- */
+.bw-card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform .22s ease, box-shadow .22s ease;
+  box-shadow: 0 6px 18px rgba(2,2,2,0.6);
+}
+.bw-card:hover{ transform: translateY(-6px); box-shadow: 0 18px 40px rgba(0,0,0,0.7) }
+
+/* card image */
+.card-thumb{height:220px; overflow:hidden; display:flex; align-items:center; justify-content:center; background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));}
+.card-thumb img{max-height:100%; width:auto; display:block; object-fit:cover; transition: transform .6s ease}
+.bw-card:hover .card-thumb img{ transform: scale(1.03) }
+
+/* card body */
+.card-body{background:transparent; color:var(--accent)}
+.card-title{font-size:1rem; font-weight:600; margin:0 0 .25rem; color:var(--accent)}
+.card-text.author{color:var(--muted); margin:0; font-size:.86rem}
+.price{font-weight:700; color:var(--accent)}
+
+/* badges */
+.category-badge{
+  display:inline-block;
+  font-size:.72rem;
+  padding:.22rem .45rem;
+  border-radius:6px;
+  background: rgba(255,255,255,0.03);
+  color:var(--muted);
+  border:1px solid rgba(255,255,255,0.03);
+}
+.low-stock-badge{
+  font-size:.72rem;
+  padding:.18rem .4rem;
+  border-radius:6px;
+  background: rgba(255,0,0,0.06);
+  color: rgba(255,255,255,0.9);
+  font-weight:600;
+}
+
+/* --- Form inputs --- */
+.input-ghost{
+  background: rgba(255,255,255,0.02);
+  border:1px solid rgba(255,255,255,0.04);
+  color:var(--accent);
+  padding:.45rem .6rem;
+  border-radius:8px;
+  outline: none;
+}
+.input-ghost::placeholder{ color: rgba(255,255,255,0.35) }
+
+/* search form (compact) */
+.search-form .form-control{width:240px}
+
+/* --- Pagination --- */
+.pagination-wrap{margin-top:2.25rem; display:flex; justify-content:center}
+.pagination-list{display:flex; gap:.5rem; list-style:none; padding:0; margin:0}
+.pagination-list li{background:transparent; border:1px solid rgba(255,255,255,0.04); padding:.45rem .7rem; border-radius:8px; color:var(--muted)}
+.pagination-list li a{color:var(--accent)}
+.pagination-list li.active{background:rgba(255,255,255,0.03); color:var(--accent); font-weight:600; border:1px solid rgba(255,255,255,0.06)}
+.pagination-list li.disabled{opacity:.35}
+
+/* --- Footer --- */
+.bw-footer{
+  border-top:1px solid rgba(255,255,255,0.03);
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+  color:var(--muted);
+}
+
+/* --- Utility --- */
+.text-muted{color:var(--muted) !important}
+.small{font-size:.85rem}
+
+/* Responsive tweaks */
+@media (max-width:768px){
+  .hero-inner{padding:4rem 1rem}
+  .card-thumb{height:180px}
+  .search-form .form-control{width:140px}
+}
